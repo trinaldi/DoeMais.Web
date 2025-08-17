@@ -8,6 +8,7 @@ import {
   Box,
   Alert,
 } from "@mui/material";
+import DonationCard from "../src/components/DonationCard";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +23,8 @@ const LoginPage = () => {
     setError("");
 
     try {
-      const res = await fetch("/api/Auth/login", {
+      const baseUrl: string = 'http://localhost:5002';
+      const res = await fetch(`${baseUrl}/Auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -31,6 +33,7 @@ const LoginPage = () => {
       if (!res.ok) throw new Error("Email ou senha inválidos");
 
       const data: { token: string } = await res.json();
+      console.log(data.token);
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
     } catch (err: any) {
@@ -43,6 +46,7 @@ const LoginPage = () => {
   return (
     <Container maxWidth="xs">
       <Box sx={{ mt: 8, display: "flex", flexDirection: "column", gap: 2 }}>
+        <DonationCard></DonationCard>
         <Typography variant="h4" align="center">
           Login
         </Typography>
