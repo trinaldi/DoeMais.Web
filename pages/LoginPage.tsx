@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {type FormEvent, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Container,
@@ -8,7 +8,7 @@ import {
   Box,
   Alert,
 } from "@mui/material";
-import DonationCard from "../src/components/DonationCard";
+import DonationCard from "../src/components/Donation/DonationCard.tsx";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -36,8 +36,9 @@ const LoginPage = () => {
       console.log(data.token);
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
-    } catch (err: any) {
-      setError(err.message || "Erro no login");
+    } catch (err: unknown) {
+
+      setError( `${err} Erro ao login` );
     } finally {
       setLoading(false);
     }
