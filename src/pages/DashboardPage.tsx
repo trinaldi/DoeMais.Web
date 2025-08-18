@@ -1,11 +1,12 @@
-import DonationCardList from "../src/components/Donation/DonationCardList.tsx";
-import type {Donation} from "../src/components/Donation/DonationCard.tsx";
-import {Box, Container} from "@mui/material";
+import DonationCardList from "../components/Donation/DonationCardList.tsx";
+import type { Donation } from "../components/Donation/DonationCard.tsx";
+import { Box, Container } from "@mui/material";
 
 const donations: Donation[] = [
     {
         title: "Colchão de Solteiro",
-        description: "Colchão de solteiro com tamanho 78cm, já bem usado, porém em boas condições.",
+        description:
+            "Colchão de solteiro com tamanho 78cm, já bem usado, porém em boas condições.",
         quantity: 1,
         status: "Aprovado",
         category: "Moveis",
@@ -24,7 +25,8 @@ const donations: Donation[] = [
     },
     {
         title: "Cadeira de Escritório",
-        description: "Cadeira ergonômica preta com ajustes, perfeita para home office.",
+        description:
+            "Cadeira ergonômica preta com ajustes, perfeita para home office.",
         quantity: 2,
         status: "Pendente",
         category: "Moveis",
@@ -43,7 +45,8 @@ const donations: Donation[] = [
     },
     {
         title: "Mesa de Jantar",
-        description: "Mesa retangular de madeira com seis cadeiras, bom estado geral.",
+        description:
+            "Mesa retangular de madeira com seis cadeiras, bom estado geral.",
         quantity: 1,
         status: "Aprovado",
         category: "Moveis",
@@ -62,7 +65,8 @@ const donations: Donation[] = [
     },
     {
         title: "Sofá 3 Lugares",
-        description: "Sofá confortável, estofado em tecido cinza, poucas marcas de uso.",
+        description:
+            "Sofá confortável, estofado em tecido cinza, poucas marcas de uso.",
         quantity: 1,
         status: "Rejeitado",
         category: "Moveis",
@@ -81,7 +85,8 @@ const donations: Donation[] = [
     },
     {
         title: "Geladeira Duplex",
-        description: "Geladeira branca, duas portas, funcionando perfeitamente.",
+        description:
+            "Geladeira branca, duas portas, funcionando perfeitamente.",
         quantity: 1,
         status: "Aprovado",
         category: "Eletrodomésticos",
@@ -119,7 +124,8 @@ const donations: Donation[] = [
     },
     {
         title: "Bike Urbana",
-        description: "Bicicleta urbana, aro 26, freios a disco, ideal para cidade.",
+        description:
+            "Bicicleta urbana, aro 26, freios a disco, ideal para cidade.",
         quantity: 1,
         status: "Aprovado",
         category: "Esportes",
@@ -214,12 +220,11 @@ const donations: Donation[] = [
     },
 ];
 
-
 export interface DonationCardListProps {
     donations: Donation[];
 }
 
-function Dashboard() {
+function DashboardPage() {
     return (
         <Box
             sx={{
@@ -233,6 +238,6 @@ function Dashboard() {
                 <DonationCardList donations={donations} />
             </Container>
         </Box>
-    )
+    );
 }
-export default Dashboard
+export default DashboardPage;
