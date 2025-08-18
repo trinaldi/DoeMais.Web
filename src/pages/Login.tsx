@@ -1,4 +1,4 @@
-import {type FormEvent, useState} from "react";
+import { type FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Container,
@@ -8,22 +8,21 @@ import {
   Box,
   Alert,
 } from "@mui/material";
-import DonationCard from "../src/components/Donation/DonationCard.tsx";
 
-const LoginPage = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
     try {
-      const baseUrl: string = 'http://localhost:5002';
+      const baseUrl: string = "http://localhost:5002";
       const res = await fetch(`${baseUrl}/Auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,8 +36,7 @@ const LoginPage = () => {
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
     } catch (err: unknown) {
-
-      setError( `${err} Erro ao login` );
+      setError(`${err} Erro ao login`);
     } finally {
       setLoading(false);
     }
@@ -47,7 +45,6 @@ const LoginPage = () => {
   return (
     <Container maxWidth="xs">
       <Box sx={{ mt: 8, display: "flex", flexDirection: "column", gap: 2 }}>
-        <DonationCard></DonationCard>
         <Typography variant="h4" align="center">
           Login
         </Typography>
@@ -89,4 +86,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
