@@ -67,7 +67,7 @@ export default function LoginForm({
               sx={{ height: 70, width: 92 }}
             />
           </Stack>
-          <Typography variant="subtitle2">DoeMais</Typography>
+          <Typography variant="h2" color="textPrimary">DoeMais</Typography>
 
           <TextField
             label="Email"
