@@ -14,6 +14,7 @@ import {
   Link,
 } from "@mui/material";
 import logo from "@/assets/logo.png";
+import { TextInput } from "../Input/TextInput";
 
 interface LoginFormProps {
   error?: string;
@@ -68,20 +69,11 @@ export default function LoginForm({
             />
           </Stack>
           <Typography variant="h2" color="textPrimary">DoeMais</Typography>
+          <TextInput label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-          <TextField
-            label="Email"
-            type="email"
-            variant="outlined"
-            fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <TextField
+          <TextInput
             label="Senha"
             type="password"
-            variant="outlined"
             fullWidth
             value={password}
             onChange={(e) => setPassword(e.target.value)}
