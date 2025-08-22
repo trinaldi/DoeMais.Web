@@ -68,7 +68,7 @@ export default function LoginForm({
               sx={{ height: 70, width: 92 }}
             />
           </Stack>
-          <Typography variant="h2" color="textPrimary">DoeMais</Typography>
+          <Typography variant="h2" color="primary">DoeMais</Typography>
           <TextInput label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
           <TextInput
@@ -94,7 +94,7 @@ export default function LoginForm({
             />
           </FormGroup>
 
-          <Button variant="contained" color="warning" type="submit" fullWidth disabled={loading}>
+          <Button variant="contained" color="primary" type="submit" fullWidth disabled={loading}>
             Login
           </Button>
 
