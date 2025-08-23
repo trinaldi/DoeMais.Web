@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# DoeMais Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend do **DoeMais**, uma plataforma para facilitar doações de forma simples, transparente e acessível.      
 
-Currently, two official plugins are available:
+[`DoeMais.Api`](https://github.com/trinaldi/DoeMaisApi).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Pré-requisitos
 
-## Expanding the ESLint configuration
+- Node.js **>= 18**  
+- **pnpm** (recomendado) – ou npm/yarn  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Instalação
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/seuuser/doemais.web.git
+cd doemais.web
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Configuração da API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Crie um arquivo .env.local na raiz com:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+`VITE_API_BASE_URL=http://localhost:5002`
+
+Ajuste a URL conforme o host/porta do doemais.api.
+
+
+## Scripts
+
+Rodar em dev:
+
+    pnpm dev
+
+Build de produção:
+
+    pnpm build
+
+Preview do build:
+
+    pnpm preview
+
+
+
+## Contribuindo
+
+- Fork o projeto
+- Crie uma branch: `git checkout -b feature/minha-feature`
+- Commit suas mudanças: `git commit -m 'feat: minha nova feature'`
+- Push: `git push origin feature/minha-feature`
+- Abra um Pull Request 
