@@ -1,25 +1,7 @@
 import { Grid, Paper, Stack, CardMedia, Typography } from "@mui/material";
 import { Place, Label } from "@mui/icons-material";
 import React from "react";
-
-type AddressProps = {
-  street: string;
-  complement?: string;
-  city: string;
-  state: string;
-  zipCode: string;
-};
-
-export type Donation = {
-  id: number;
-  title: string;
-  description: string;
-  quantity: number;
-  status: string;
-  category: string;
-  pickupAddress: AddressProps;
-  images: string[];
-};
+import type { Donation } from "@/types/donation";
 
 type DonationCardProps = {
   donation: Donation;
@@ -37,7 +19,6 @@ const DonationCard: React.FC<DonationCardProps> = ({ donation }) => {
         }}
       >
         <Grid container>
-
           <Grid size={6} sx={{ padding: 2 }} alignContent="center">
             <CardMedia
               component="img"
@@ -48,27 +29,30 @@ const DonationCard: React.FC<DonationCardProps> = ({ donation }) => {
 
           <Grid size={6} sx={{ height: 150 }}>
             <Stack sx={{ padding: 2 }}>
-              <Typography variant="h6"
+              <Typography
+                variant="h6"
                 sx={{ lineHeight: 1.25, marginBottom: 1 }}
               >
                 {donation.title}
               </Typography>
-              <Typography variant="caption"
+              <Typography
+                variant="caption"
                 sx={{ display: "flex", alignItems: "center", marginBottom: 1 }}
               >
                 <strong>Quantidade &nbsp;</strong>
                 <span> {donation.quantity}</span>
               </Typography>
-              <Typography variant="caption" 
-                sx={{ 
-                  height: 90, 
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 4,  
-                  WebkitBoxOrient: 'vertical',
-                  lineHeight: 1.25, 
-                  marginBottom: 2 
+              <Typography
+                variant="caption"
+                sx={{
+                  height: 90,
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 4,
+                  WebkitBoxOrient: "vertical",
+                  lineHeight: 1.25,
+                  marginBottom: 2,
                 }}
               >
                 {donation.description}
