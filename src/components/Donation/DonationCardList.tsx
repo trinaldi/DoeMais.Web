@@ -1,14 +1,17 @@
-import type {DonationCardListProps} from "../../../pages/Dashboard.tsx";
-import DonationCard from "./DonationCard.tsx";
+import DonationCard, { type Donation } from "./DonationCard.tsx";
 import {Container,Grid} from "@mui/material";
 
-const DonationCardList = (donations: DonationCardListProps) => {
+type DonationCardListProps = {
+  donations: Donation[];
+}
+
+const DonationCardList = ({donations}: DonationCardListProps) => {
   return (
     <Container>
-      <Grid container spacing={4}>
-        {donations.donations.map((donation) => (
-          <Grid size={4}>
-          <DonationCard donation={donation} key={donation.title} />
+      <Grid container spacing={4} size={12}>
+        {donations.map((donation) => (
+          <Grid size={4} sx={{width: '100%'}}>
+            <DonationCard donation={donation} key={donation.id} />
           </Grid>
         ))}
       </Grid>

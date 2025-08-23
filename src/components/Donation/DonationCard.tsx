@@ -9,7 +9,9 @@ type AddressProps = {
   state: string;
   zipCode: string;
 };
+
 export type Donation = {
+  id: number;
   title: string;
   description: string;
   quantity: number;
