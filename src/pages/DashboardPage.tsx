@@ -2,6 +2,7 @@ import DonationCardList from "../components/Donation/DonationCardList.tsx";
 import { Box, Container } from "@mui/material";
 import { useDonations } from "@/hooks/useDonations.tsx";
 import Address from "@/components/Address/Address.tsx";
+import type { Address as AddressType } from "@/types/address.ts";
 
 const fakeAddress: AddressType = {
   street: "rua dos bobos, 0",
@@ -12,10 +13,10 @@ const fakeAddress: AddressType = {
 };
 
 function DashboardPage() {
-  const { donations, loading, error} = useDonations();
+  const { donations, loading, error } = useDonations();
 
-  if (loading) return <p>loading...</p>
-  if (error) return <p>{error}</p>
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>{error}</p>;
   return (
     <Box
       sx={{
@@ -26,7 +27,7 @@ function DashboardPage() {
       }}
     >
       <Container maxWidth="lg">
-        <DonationCardList donations={donations}/>
+        <DonationCardList donations={donations} />
         <Address address={fakeAddress} category="delivery" />
       </Container>
     </Box>
