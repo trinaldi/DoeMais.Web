@@ -1,6 +1,15 @@
 import DonationCardList from "../components/Donation/DonationCardList.tsx";
 import { Box, Container } from "@mui/material";
 import { useDonations } from "@/hooks/useDonations.tsx";
+import Address from "@/components/Address/Address.tsx";
+
+const fakeAddress: AddressType = {
+  street: "rua dos bobos, 0",
+  complement: "",
+  city: "xique xique",
+  state: "BA",
+  zipCode: "14026590",
+};
 
 function DashboardPage() {
   const { donations, loading, error} = useDonations();
@@ -18,6 +27,7 @@ function DashboardPage() {
     >
       <Container maxWidth="lg">
         <DonationCardList donations={donations}/>
+        <Address address={fakeAddress} category="delivery" />
       </Container>
     </Box>
   );
